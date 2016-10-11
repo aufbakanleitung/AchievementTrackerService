@@ -11,7 +11,7 @@ public class ProjectManager {
 		
 	}
 
-	public List<Project> findAllProjects() throws java.sql.SQLException{
+	public List<Project> findAllProject() throws java.sql.SQLException{
 		
 		return null;
 	}

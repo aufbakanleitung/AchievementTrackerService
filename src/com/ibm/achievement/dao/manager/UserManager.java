@@ -43,7 +43,7 @@ public List<User> findUserByActiveFlg (String actFlg) throws java.sql.SQLExcepti
 	return null;
 }
 
-public User findUserbyMailId (String mailId) throws java.sql.SQLException {
+public User findUserByMailId (String mailId) throws java.sql.SQLException {
 	
 	return null;
 }
