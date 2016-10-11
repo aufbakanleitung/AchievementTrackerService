@@ -1,29 +1,38 @@
 package com.ibm.achievement.dao.util;
 
+import com.ibm.achievement.dao.manager.AchievementManager;
+import com.ibm.achievement.dao.manager.EmployeeManager;
+import com.ibm.achievement.dao.manager.ProjectManager;
+import com.ibm.achievement.dao.manager.UserManager;
+
 public class AchievementListeners {
 
-	private String achievementManager;
-	private String employeeManager;
-	private String projectManager;
-	private String userManager;
+	private AchievementManager achievementManager;
+	private EmployeeManager employeeManager;
+	private ProjectManager projectManager;
+	private UserManager userManager;
 	
-	public AchievementListeners() {
-	}
-
-	public String getAchievementManager() {
+	
+	public AchievementManager getAchievementManager() {
 		return achievementManager;
 	}
-
-	public String getEmployeeManager() {
+	
+	public EmployeeManager getEmployeeManager() {
 		return employeeManager;
 	}
-
-	public String getProjectManager() {
+	
+	public ProjectManager getProjectManager() {
 		return projectManager;
 	}
-
-	public String getUserManager() {
+	
+	public UserManager getUserManager() {
 		return userManager;
 	}
+	
+	
+	
+	
+
+	
 
 }
