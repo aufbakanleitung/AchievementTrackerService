@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Achievement extends java.lang.Object{
     
-	private List AchievementDoc;
+	private List <AchievementDoc> AchievementDoc;
 	private int AchievementId;
 	private String	AchievementText;
 	private String	AchievementTypeId;
@@ -22,11 +22,11 @@ public class Achievement extends java.lang.Object{
 	public Achievement(){
 	}
 
-	public List getAchievementDoc() {
+	public List<AchievementDoc> getAchievementDoc() {
 		return AchievementDoc;
 	}
 
-	public void setAchievementDoc(List achievementDoc) {
+	public void setAchievementDoc(List<AchievementDoc> achievementDoc) {
 		AchievementDoc = achievementDoc;
 	}
 
@@ -125,6 +125,5 @@ public class Achievement extends java.lang.Object{
 	public void setStatusCode(String statusCode) {
 		StatusCode = statusCode;
 	}
-	
-	
+
 }
