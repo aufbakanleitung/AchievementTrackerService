@@ -2,6 +2,8 @@ package com.ibm.achievement.dao;
 
 import java.util.List;
 
+import com.ibm.achievement.dao.model.User;
+
 public interface UserDAO {
 
 	User findUserByMailId(java.lang.String mailId)

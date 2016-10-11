@@ -1,8 +1,12 @@
 package com.ibm.achievement.dao;
 
-import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
-
 import java.util.List;
+
+import com.ibm.achievement.dao.model.Achievement;
+import com.ibm.achievement.dao.model.AchievementCatg;
+import com.ibm.achievement.dao.model.AchievementCount;
+import com.ibm.achievement.dao.model.AchievementDoc;
+import com.ibm.achievement.dao.model.AchievementType;
 		
 public interface AchievementDAO{
 
@@ -28,9 +32,6 @@ public interface AchievementDAO{
 			throws java.sql.SQLException;
 
 	AchievementCount findAchievementCountById(java.lang.String employeeId)
-			throws java.sql.SQLException;
-
-	int saveAchievement(Achievement achievement)
 			throws java.sql.SQLException;
 
 	int saveAchievement(Achievement achievement)

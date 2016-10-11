@@ -1,5 +1,11 @@
 package com.ibm.achievement.dao;
 
+import java.util.List;
+
+import com.ibm.achievement.dao.model.Employee;
+import com.ibm.achievement.dao.model.EmployeeUserProject;
+import com.ibm.achievement.dao.model.Project;
+
 public interface EmployeeDAO {
 
 	List<Employee> findByManagerFlag()
@@ -43,5 +49,5 @@ public interface EmployeeDAO {
             java.lang.String firstName,
             java.lang.String lastName,
             java.lang.String managerFlag)
-            throws java.sql.SQLException
+            throws java.sql.SQLException;
 }
