@@ -1,29 +1,29 @@
 package com.ibm.achievement.dao.util;
 
-public class AchievementListeners extends java.lang.Object {
+public class AchievementListeners {
 
-	private String AchievementManager;
-	private String EmployeeManager;
-	private String ProjectManager;
-	private String UserManager;
+	private String achievementManager;
+	private String employeeManager;
+	private String projectManager;
+	private String userManager;
 	
 	public AchievementListeners() {
 	}
 
 	public String getAchievementManager() {
-		return AchievementManager;
+		return achievementManager;
 	}
 
 	public String getEmployeeManager() {
-		return EmployeeManager;
+		return employeeManager;
 	}
 
 	public String getProjectManager() {
-		return ProjectManager;
+		return projectManager;
 	}
 
 	public String getUserManager() {
-		return UserManager;
+		return userManager;
 	}
 
 }
