@@ -3,10 +3,13 @@ package com.ibm.achievement.dao.manager;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
 import com.ibm.achievement.dao.model.Employee;
 import com.ibm.achievement.dao.model.EmployeeUserProject;
 import com.ibm.achievement.dao.model.Project;
 
+@Component
 public class EmployeeManager {
 	String mailId;
 	String actFlg;

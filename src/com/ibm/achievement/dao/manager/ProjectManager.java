@@ -1,7 +1,10 @@
 package com.ibm.achievement.dao.manager;
 
+import org.springframework.stereotype.Component;
+
 import com.ibm.achievement.dao.model.Project;
 
+@Component
 public class ProjectManager {
 	
 	public ProjectManager(){

@@ -1,5 +1,6 @@
 package com.ibm.achievement.dao.manager;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
@@ -19,34 +20,34 @@ public class AchievementManager {
 	public String employeeId;
 	public String typeId;
 	
-	public List<AchievementType> findAllAchievementType() throws java.sql.SQLException{
+	public List<AchievementType> findAllAchievementType() throws SQLException{
 		return null;
 	}
-	public AchievementType findAchievementType(String typeId) throws java.sql.SQLException{
+	public AchievementType findAchievementType(String typeId) throws SQLException{
 		return null;
 	}
-	public List<AchievementCatg> findAllAchievementCatg() throws java.sql.SQLException{
+	public List<AchievementCatg> findAllAchievementCatg() throws SQLException{
 		return null;
 	}
-	public List<Achievement> findAchievementByEmpId(String empId) throws java.sql.SQLException{
+	public List<Achievement> findAchievementByEmpId(String empId) throws SQLException{
 		return null;
 	}
-	public int saveAchievement(Achievement achievement) throws java.sql.SQLException{
+	public int saveAchievement(Achievement achievement) throws SQLException{
 		return 0;
 	}
-	public int updateAchievement(Achievement achievement) throws java.sql.SQLException{
+	public int updateAchievement(Achievement achievement) throws SQLException{
 		return 0;
 	}
-	public List<Achievement> findAchievementByApproverId(String approverId) throws java.sql.SQLException{
+	public List<Achievement> findAchievementByApproverId(String approverId) throws SQLException{
 		return null;
 	}
-	public Achievement findAchievementById(int achievementId) throws java.sql.SQLException{
+	public Achievement findAchievementById(int achievementId) throws SQLException{
 		return null;
 	}
-	public int saveAchievementDoc(AchievementDoc achievementDoc) throws java.sql.SQLException{
+	public int saveAchievementDoc(AchievementDoc achievementDoc) throws SQLException{
 		return 0;
 	}
-	public AchievementCount findAchievementCountById(String employeeId) throws java.sql.SQLException{
+	public AchievementCount findAchievementCountById(String employeeId) throws SQLException{
 		return null;
 	}
 }
