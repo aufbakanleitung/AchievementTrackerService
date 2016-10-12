@@ -17,11 +17,14 @@ public interface UserDAO {
 
 	int updateActiveFlag(java.lang.String mailId, java.lang.String activeFlg)
 			throws java.sql.SQLException;
-	
-	int insertUserData(java.lang.String mailId, java.lang.String passwd, java.lang.String activeFlg, java.lang.String role)
-            throws java.sql.SQLException;
-	
+
+	int insertUserData(java.lang.String mailId,
+			java.lang.String passwd,
+			java.lang.String activeFlg,
+			java.lang.String role)
+					throws java.sql.SQLException;
+
 	int deleteUserData(java.lang.String mailId)
-            throws java.sql.SQLException;
-	
+			throws java.sql.SQLException;
+
 }
