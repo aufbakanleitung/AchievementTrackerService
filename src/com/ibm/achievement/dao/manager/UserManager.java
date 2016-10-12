@@ -16,7 +16,6 @@ public class UserManager {
 	private UserDAO userDAO; 
 
 
-	@Autowired
 	public UserManager(){
 
 	}

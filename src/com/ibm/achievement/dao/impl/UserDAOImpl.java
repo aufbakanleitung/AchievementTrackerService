@@ -11,12 +11,9 @@ import com.ibm.achievement.dao.model.User;
 
 @Component
 public class UserDAOImpl implements UserDAO{	
-	@Autowired JdbcTemplate template;
+	@Autowired 
+	JdbcTemplate template;
 
-	
-	@Autowired
-	private void JdbcTemplate() {
-	}
 
 	public User findUserByMailId(java.lang.String mailId)
 			throws java.sql.SQLException{return null;}
