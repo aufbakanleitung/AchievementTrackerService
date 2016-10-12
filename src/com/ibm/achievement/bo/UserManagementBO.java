@@ -55,6 +55,7 @@ public class UserManagementBO {
 			User user = userManager.findUserByMailId(emailId);
 
 			if (user != null && user.getPasswd().equals(password) && user.getActivFlg().equals("Y")) {
+				logger.info("User authenticated" + emailId);
 				EmployeeManager employeeManager = achievementListeners.getEmployeeManager();
 				Employee employee = employeeManager.findEmployeeByMailId(user.getEmailId());
 				BeanUtils.copyProperties(employee, employeeVO);
