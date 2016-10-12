@@ -2,12 +2,18 @@ package com.ibm.achievement.dao.manager;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.ibm.achievement.dao.UserDAO;
 import com.ibm.achievement.dao.model.User;
 
 @Component
 public class UserManager {
+
+	@Autowired
+	private UserDAO userDAO; 
 	
 public UserManager(){
 	
@@ -45,7 +51,7 @@ public List<User> findUserByActiveFlg (String actFlg) throws java.sql.SQLExcepti
 
 public User findUserByMailId (String mailId) throws java.sql.SQLException {
 	
-	return null;
+	return userDAO.findUserByMailId(mailId);
 }
 
 
