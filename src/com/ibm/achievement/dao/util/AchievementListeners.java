@@ -8,6 +8,7 @@ import com.ibm.achievement.dao.manager.EmployeeManager;
 import com.ibm.achievement.dao.manager.ProjectManager;
 import com.ibm.achievement.dao.manager.UserManager;
 
+@Component
 public class AchievementListeners {
 
 	@Autowired
