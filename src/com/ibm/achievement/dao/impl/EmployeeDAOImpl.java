@@ -1,10 +1,19 @@
 package com.ibm.achievement.dao.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Component;
+
+import com.ibm.achievement.dao.EmployeeDAO;
 import com.ibm.achievement.dao.model.Employee;
 import com.ibm.achievement.dao.model.EmployeeUserProject;
 import com.ibm.achievement.dao.model.Project;
 
-public class EmployeeDAOImpl {
+@Component
+public class EmployeeDAOImpl implements EmployeeDAO{
+	
+	@Autowired JdbcTemplate template;
+	
 	public java.util.List<Employee> findByManagerFlag()
             throws java.sql.SQLException{return null;}
 	

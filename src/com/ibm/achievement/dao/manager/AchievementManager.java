@@ -3,8 +3,10 @@ package com.ibm.achievement.dao.manager;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.ibm.achievement.dao.AchievementDAO;
 import com.ibm.achievement.dao.model.Achievement;
 import com.ibm.achievement.dao.model.AchievementCatg;
 import com.ibm.achievement.dao.model.AchievementCount;
@@ -13,6 +15,8 @@ import com.ibm.achievement.dao.model.AchievementType;
 
 @Component
 public class AchievementManager {
+	
+@Autowired AchievementDAO achievementDAO;
 	
 	public String approverId;
 	public String empId;

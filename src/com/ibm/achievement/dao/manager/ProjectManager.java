@@ -1,11 +1,17 @@
 package com.ibm.achievement.dao.manager;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import java.util.List;
+
+import com.ibm.achievement.dao.ProjectDAO;
 import com.ibm.achievement.dao.model.Project;
 
 @Component
 public class ProjectManager {
+	
+	@Autowired
+	private ProjectDAO projectDAO;
 	
 	public ProjectManager(){
 		

@@ -41,7 +41,7 @@ public class UserManagementBO {
 	 */
 	public EmployeeVO isValidUser(String emailId, String password) throws AchievementTrackerException {
 		
-		logger.info("START isValidUser");
+		logger.info("START isValidUser BO");
 		EmployeeVO employeeVO = new EmployeeVO();
 		
 		if (emailId == null || emailId.equals("")) {

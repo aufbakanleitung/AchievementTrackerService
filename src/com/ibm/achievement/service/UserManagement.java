@@ -44,7 +44,7 @@ public class UserManagement extends SpringBeanAutowiringSupport {
 	public EmployeeVO isValidUser(@WebParam(name = "emailId") String emailId,
 			@WebParam(name = "password") String password)
 			throws AchievementTrackerException {
-		logger.info("START isValidUser");
+		logger.info("START isValidUser UM");
 		EmployeeVO employeeVO = new EmployeeVO();
 		try {
 			employeeVO = userManagementBO.isValidUser(emailId, password);

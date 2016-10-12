@@ -1,11 +1,24 @@
 package com.ibm.achievement.dao.impl;
 
+import java.sql.SQLException;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Component;
+
+import com.ibm.achievement.dao.AchievementDAO;
 import com.ibm.achievement.dao.model.Achievement;
+import com.ibm.achievement.dao.model.AchievementCatg;
 import com.ibm.achievement.dao.model.AchievementCount;
 import com.ibm.achievement.dao.model.AchievementDoc;
 import com.ibm.achievement.dao.model.AchievementType;
 
-public class AchievementDAOImpl {
+@Component
+public class AchievementDAOImpl implements AchievementDAO {
+	
+	@Autowired JdbcTemplate template;
+	
 	public java.util.List<AchievementType> findAllAchievementType()
             throws java.sql.SQLException{return null;}
 	
@@ -31,5 +44,17 @@ public class AchievementDAOImpl {
 	
 	public AchievementCount findAchievementCountById(java.lang.String employeeId)
             throws java.sql.SQLException{return null;}
+
+	@Override
+	public List<AchievementCatg> findAllAchievementCatg() throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<AchievementDoc> findAchievementDocById(String achievementId) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }
