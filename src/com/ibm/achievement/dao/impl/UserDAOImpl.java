@@ -17,6 +17,7 @@ public class UserDAOImpl implements UserDAO{
 
 	public User findUserByMailId(java.lang.String mailId)
 			throws java.sql.SQLException{return null;}
+			
 
 	public java.util.List<User> findUserByActiveFlg(java.lang.String actFlg)
 			throws java.sql.SQLException{return null;}
