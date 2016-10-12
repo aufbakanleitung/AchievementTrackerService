@@ -5,10 +5,16 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.ibm.achievement.dao.UserDAO;
 import com.ibm.achievement.dao.model.User;
 
 @Component
 public class UserManager {
+
+	@Autowired
+	private UserDAO userDAO; 
+
 
 	@Autowired
 	public UserManager(){
@@ -46,9 +52,8 @@ public class UserManager {
 	}
 
 	public User findUserByMailId (String mailId) throws java.sql.SQLException {
-
-		return null;
-	}
-
+		
+		return userDAO.findUserByMailId(mailId);
+}
 
 }

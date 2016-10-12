@@ -9,13 +9,15 @@
 						http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
 						http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 				    	
+  	<!-- CONNECTION TO THE DATABASE! -->
   	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<property name="url" value="jdbc:mysql://localhost:3306/IBMASSMNT" />
 		<property name="username" value="root" />
-		<property name="password" value="Passw0rd"/>
+		<property name="password" value=""/>
 	</bean>
 	
+	<!-- JDBC RESPONSIBLE FOR THE QUERIES -->
 	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">  
 		<property name="dataSource" ref="dataSource"></property>
 	</bean>
@@ -24,11 +26,13 @@
 	    <property name="dataSource" ref="dataSource"/>
 	</bean>
 	
+	<!-- TELLS SPRING TO RECOGNIZE ANNOTATION IN THE THREE PACKAGES SPECIFIED -->
 	<context:annotation-config/>
 	<context:component-scan base-package="com.ibm.achievement.bo"></context:component-scan>
 	<context:component-scan base-package="com.ibm.achievement.dao.impl"></context:component-scan>
 	<context:component-scan base-package="com.ibm.achievement.dao.manager"></context:component-scan>
 	
+	<!-- TELLS SPRING TO LOOK FOR TRANSACITON MANAGER -->
 	<tx:annotation-driven transaction-manager="txManager"/>
 	
 <!--  	<bean id="userDaoImpl" class="com.ibm.achievement.dao.impl.UserDaoImpl"></bean> -->
