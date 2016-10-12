@@ -63,6 +63,7 @@ public class UserManagementBO {
 				employeeVO.setActiveFlag(user.getActivFlg());
 				
 				ProjectManager projectManager = achievementListeners.getProjectManager();
+				//Implement findProjectByMailId
 				List<Project> projList = projectManager.findProjectByEmpId(employee.getEmployeeId());
 				List<ProjectVO> projects = new ArrayList<ProjectVO>();
 				
