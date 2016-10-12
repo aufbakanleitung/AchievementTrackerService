@@ -1,13 +1,18 @@
 package com.ibm.achievement.dao.impl;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 
 import com.ibm.achievement.dao.EmployeeDAO;
 import com.ibm.achievement.dao.model.Employee;
 import com.ibm.achievement.dao.model.EmployeeUserProject;
 import com.ibm.achievement.dao.model.Project;
+import com.ibm.achievement.dao.model.User;
 
 @Component
 public class EmployeeDAOImpl implements EmployeeDAO{
@@ -18,7 +23,25 @@ public class EmployeeDAOImpl implements EmployeeDAO{
             throws java.sql.SQLException{return null;}
 	
 	public Employee findEmployeeByMailId(java.lang.String mailId)
-            throws java.sql.SQLException{return null;}
+			throws java.sql.SQLException{
+		return template.queryForObject("select * from TA_EMPLOYEE_DETAIL where EMAIL_ADDRESS = ?",
+				new RowMapper<Employee>() {
+
+			@Override
+			public Employee mapRow(ResultSet rs, int num) throws SQLException {
+				Employee employee = new Employee();
+				employee.setEmployeeId(rs.getString("EMPLOYEE_ID"));
+				employee.setEmailID(rs.getString("EMAIL_ADDRESS"));
+				employee.setFirstName(rs.getString("FIRST_NAME"));
+				employee.setLastName(rs.getString("LAST_NAME"));
+				employee.setManagerId(rs.getString("MANAGER_ID"));
+				employee.setManagerFlag(rs.getString("MANAGER_FLAG"));
+				return employee;
+			}
+
+		},
+				mailId);
+	}
 	
 	public java.util.List<Employee> findAllEmployee()
             throws java.sql.SQLException{return null;}
