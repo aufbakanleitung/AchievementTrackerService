@@ -12,19 +12,22 @@ import com.ibm.achievement.dao.model.User;
 public class UserDAOImpl implements UserDAO{
 	
 	@Autowired
+	private void JdbcTemplate() {
+	}
+
 	public User findUserByMailId(java.lang.String mailId)
-            throws java.sql.SQLException{return null;}
-	
+			throws java.sql.SQLException{return null;}
+
 	public java.util.List<User> findUserByActiveFlg(java.lang.String actFlg)
-            throws java.sql.SQLException{return null;}
-	
+			throws java.sql.SQLException{return null;}
+
 	public java.util.List<User> findAllUser()
-            throws java.sql.SQLException{return null;}
-	
+			throws java.sql.SQLException{return null;}
+
 	public int updateActiveFlag(java.lang.String mailId,
-            java.lang.String activeFlg)
-     throws java.sql.SQLException{return 0;}
-	
+			java.lang.String activeFlg)
+					throws java.sql.SQLException{return 0;}
+
 	public int insertUserData(java.lang.String mailId,
             java.lang.String passwd,
             java.lang.String activeFlg,
