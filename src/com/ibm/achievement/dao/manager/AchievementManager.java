@@ -38,21 +38,21 @@ public class AchievementManager {
 		return achievementDAO.findAchievementByApproverId(empId);
 	}
 	public int saveAchievement(Achievement achievement) throws SQLException{
-		return 0;
+		return achievementDAO.saveAchievement(achievement);
 	}
 	public int updateAchievement(Achievement achievement) throws SQLException{
-		return 0;
+		return achievementDAO.updateAchievement(achievement);
 	}
 	public List<Achievement> findAchievementByApproverId(String approverId) throws SQLException{
-		return null;
+		return achievementDAO.findAchievementByApproverId(approverId);
 	}
 	public Achievement findAchievementById(int achievementId) throws SQLException{
-		return null;
+		return achievementDAO.findAchievementById(achievementId);
 	}
 	public int saveAchievementDoc(AchievementDoc achievementDoc) throws SQLException{
-		return 0;
+		return achievementDAO.saveAchievementDoc(achievementDoc);
 	}
 	public AchievementCount findAchievementCountById(String employeeId) throws SQLException{
-		return null;
+		return achievementDAO.findAchievementCountById(employeeId);
 	}
 }

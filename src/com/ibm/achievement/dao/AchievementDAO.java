@@ -36,6 +36,9 @@ public interface AchievementDAO{
 
 	int saveAchievement(Achievement achievement)
 			throws java.sql.SQLException;
+	
+	int saveAchievementDoc(AchievementDoc achievementDoc)
+			throws java.sql.SQLException;
 
 	int updateAchievement(Achievement achievement)
 			throws java.sql.SQLException;
