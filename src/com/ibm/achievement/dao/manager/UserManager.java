@@ -29,7 +29,7 @@ public class UserManager {
 	public int insertUserData (String mailId, String passwd, String activeFlg, String role)
 			throws java.sql.SQLException {
 
-		return 0;
+		return userDAO.insertUserData(mailId, passwd, activeFlg, role);
 
 	}
 
@@ -37,17 +37,17 @@ public class UserManager {
 	public int updateActiveFlag (String mailId, String activeFlg)
 			throws java.sql.SQLException {
 
-		return 0;
+		return userDAO.updateActiveFlag(mailId, activeFlg);
 	}
 
 	public List<User> findAllUser() throws java.sql.SQLException {
 
-		return null;
+		return userDAO.findAllUser();
 	}
 
 	public List<User> findUserByActiveFlg (String actFlg) throws java.sql.SQLException {
 
-		return null;
+		return userDAO.findUserByActiveFlg(actFlg);
 	}
 
 	public User findUserByMailId (String mailId) throws java.sql.SQLException {
