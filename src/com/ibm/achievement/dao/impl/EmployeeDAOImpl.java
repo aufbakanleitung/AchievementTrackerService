@@ -25,26 +25,17 @@ public class EmployeeDAOImpl implements EmployeeDAO{
 	public Employee findEmployeeByMailId(java.lang.String mailId)
 			throws java.sql.SQLException{
 		return template.queryForObject("select * from TA_EMPLOYEE_DETAIL where EMAIL_ADDRESS = ?",
-				new RowMapper<Employee>() {
-
-			@Override
-			public Employee mapRow(ResultSet rs, int num) throws SQLException {
-				Employee employee = new Employee();
-				employee.setEmployeeId(rs.getString("EMPLOYEE_ID"));
-				employee.setEmailID(rs.getString("EMAIL_ADDRESS"));
-				employee.setFirstName(rs.getString("FIRST_NAME"));
-				employee.setLastName(rs.getString("LAST_NAME"));
-				employee.setManagerId(rs.getString("MANAGER_ID"));
-				employee.setManagerFlag(rs.getString("MANAGER_FLAG"));
-				return employee;
-			}
-
-		},
+				new EmployeeMapper(),
 				mailId);
 	}
 	
 	public java.util.List<Employee> findAllEmployee()
-            throws java.sql.SQLException{return null;}
+            throws java.sql.SQLException{
+		
+		return template.query("select * from TA_EMPLOYEE_DETAIL", new EmployeeMapper());
+		
+	
+	}
 	
 	public java.util.List<EmployeeUserProject> findEmployeeByActiveFlg(java.lang.String actFlg){return null;}
 	
@@ -78,4 +69,6 @@ public class EmployeeDAOImpl implements EmployeeDAO{
             java.lang.String lastName,
             java.lang.String managerFlag)
      throws java.sql.SQLException{return null;}
+	
+	
 }

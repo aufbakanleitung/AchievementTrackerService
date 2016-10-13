@@ -55,14 +55,14 @@ public class UserManagementBO {
 			User user = userManager.findUserByMailId(emailId);
 
 			if (user != null && user.getPasswd().equals(password) && user.getActivFlg().equals("Y")) {
-				logger.info("User authenticated" + emailId);
+				logger.info("User authenticated " + emailId);
 				EmployeeManager employeeManager = achievementListeners.getEmployeeManager();
 				Employee employee = employeeManager.findEmployeeByMailId(user.getEmailId());
 				BeanUtils.copyProperties(employee, employeeVO);
 				employeeVO.setUserRoll(user.getRole());
 				employeeVO.setActiveFlag(user.getActivFlg());
-				
 				ProjectManager projectManager = achievementListeners.getProjectManager();
+				
 				//Implement findProjectByMailId
 				List<Project> projList = projectManager.findProjectByEmpId(employee.getEmployeeId());
 				List<ProjectVO> projects = new ArrayList<ProjectVO>();
@@ -155,9 +155,11 @@ public class UserManagementBO {
 	public List<EmployeeVO> findUserByActiveFlag(String activeFlag) throws AchievementTrackerException {
 		
 		logger.info("START findUserByActiveFlag");
+		logger.info("testing");
 		List<EmployeeVO> employeeVOs = new ArrayList<EmployeeVO>();
 		EmployeeManager employeeManager = achievementListeners.getEmployeeManager();
 		List<EmployeeUserProject> employeeUser = employeeManager.findEmployeeByActiveFlg(activeFlag);
+		logger.info("testing");
 		try {
 			for (EmployeeUserProject empUser : employeeUser) {
 				EmployeeVO employeeVO = new EmployeeVO();

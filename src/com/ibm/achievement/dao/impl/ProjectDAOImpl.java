@@ -20,9 +20,9 @@ import jdk.nashorn.internal.ir.WhileNode;
 
 @Component
 public class ProjectDAOImpl implements ProjectDAO{
-	
+
 	@Autowired JdbcTemplate template;
-	
+
 	public java.util.List<Project> findAllProject()
 			throws java.sql.SQLException{return null;}
 
@@ -30,20 +30,20 @@ public class ProjectDAOImpl implements ProjectDAO{
 			throws java.sql.SQLException{
 		return template.query("select * from TA_PROJECTS where PROJECT_ID in (select PROJECT_ID from TA_EMPLOYEE_PROJECT where EMPLOYEE_ID = ?)",
 				new RowMapper<Project>() {
-					@Override
-					public Project mapRow(ResultSet rs, int num) throws SQLException {
-						Project project = new Project();
-						project.setManagerID(rs.getString("MANAGER_ID"));
-						project.setProjectID(rs.getString("PROJECT_ID"));
-						project.setProjectName(rs.getString("PROJECT_NAME"));
-						
-						return project;
-					}
-			
+			@Override
+			public Project mapRow(ResultSet rs, int num) throws SQLException {
+				Project project = new Project();
+				project.setManagerID(rs.getString("MANAGER_ID"));
+				project.setProjectID(rs.getString("PROJECT_ID"));
+				project.setProjectName(rs.getString("PROJECT_NAME"));
+
+				return project;
+			}
+
 		},
 				empId);
-		}
-		
+	}
+
 
 	public int insertEmpProject(java.lang.String projectId,
 			java.lang.String employeeId)
