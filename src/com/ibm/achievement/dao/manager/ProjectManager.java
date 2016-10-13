@@ -27,7 +27,7 @@ public class ProjectManager {
 
 	public List<Project> findAllProject() throws java.sql.SQLException{
 		
-		return null;
+		return projectDAO.findAllProject();
 	}
 	
 	public List<Project> findProjectByEmpId (String empId)

@@ -24,7 +24,9 @@ public class ProjectDAOImpl implements ProjectDAO{
 	@Autowired JdbcTemplate template;
 
 	public java.util.List<Project> findAllProject()
-			throws java.sql.SQLException{return null;}
+			throws java.sql.SQLException{
+		return template.query("select * from TA_PROJECTS", new ProjectMapper());
+	}
 
 	public java.util.List<Project> findProjectByEmpId(java.lang.String empId)
 			throws java.sql.SQLException{
