@@ -67,14 +67,13 @@ public class EmployeeManager {
 		return null;
 	}
 	public List<EmployeeUserProject> findEmployeeByActiveFlg(String actFlg)
-		throws java.sql.SQLException{
-			try {
+			throws java.sql.SQLException{
+		try {
 
-				return template.query("select * from TA_EMPLOYEE_PROJECT where EMPLOYEE_ID in (select EMPLOYEE_ID from TA_EMPLOYEE_DETAIL where EMAIL_ADDRESS in (select EMAIL_ADDRESS from TA_USERS where ACTIVE_FLAG = ?))", new EmployeeMapper(), actFlg);
-			
+			return template.queryForObject("select * from TA_EMPLOYEE_PROJECT where EMPLOYEE_ID in (select EMPLOYEE_ID from TA_EMPLOYEE_DETAIL where EMAIL_ADDRESS in (select EMAIL_ADDRESS from TA_USERS where ACTIVE_FLAG = ?))", new EmployeeMapper(), actFlg);
+
 		}catch (IncorrectResultSizeDataAccessException e) {
-			
-		}
+
 		}
 	}
 
