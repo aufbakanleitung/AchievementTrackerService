@@ -25,16 +25,17 @@ public class AchievementManager {
 	public String typeId;
 	
 	public List<AchievementType> findAllAchievementType() throws SQLException{
-		return null;
+		return achievementDAO.findAllAchievementType();
 	}
+	
 	public AchievementType findAchievementType(String typeId) throws SQLException{
-		return null;
+		return achievementDAO.findAchievementType(typeId);
 	}
 	public List<AchievementCatg> findAllAchievementCatg() throws SQLException{
-		return null;
+		return achievementDAO.findAllAchievementCatg();
 	}
 	public List<Achievement> findAchievementByEmpId(String empId) throws SQLException{
-		return null;
+		return achievementDAO.findAchievementByApproverId(empId);
 	}
 	public int saveAchievement(Achievement achievement) throws SQLException{
 		return 0;

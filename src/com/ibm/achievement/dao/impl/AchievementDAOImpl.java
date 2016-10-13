@@ -20,7 +20,9 @@ public class AchievementDAOImpl implements AchievementDAO {
 	@Autowired JdbcTemplate template;
 	
 	public java.util.List<AchievementType> findAllAchievementType()
-            throws java.sql.SQLException{return null;}
+            throws java.sql.SQLException{
+		return template.query("select * from TA_ACHIEVEMENT_TYPE", new AchievementManagerMapper());
+		}
 	
 	public java.util.List<Achievement> findAchievementByEmpId(java.lang.String empId)
             throws java.sql.SQLException{return null;}
