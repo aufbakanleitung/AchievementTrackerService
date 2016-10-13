@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.springframework.aop.ThrowsAdvice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -11,6 +12,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 
 import com.ibm.achievement.dao.EmployeeDAO;
+import com.ibm.achievement.dao.impl.EmployeeMapper;
 import com.ibm.achievement.dao.model.Employee;
 import com.ibm.achievement.dao.model.EmployeeUserProject;
 import com.ibm.achievement.dao.model.Project;
@@ -65,8 +67,17 @@ public class EmployeeManager {
 		return null;
 	}
 	public List<EmployeeUserProject> findEmployeeByActiveFlg(String actFlg){
-		return null;
+		throws java.SQLException{
+			try {
+
+				return template.query("select * from TA_EMPLOYEE_PROJECT where EMPLOYEE_ID in (select EMPLOYEE_ID from TA_EMPLOYEE_DETAIL where EMAIL_ADDRESS in (select EMAIL_ADDRESS from TA_USERS where ACTIVE_FLAG = ?))", new EmployeeMapper(), actFlg);
+			
+		}catch (IncorrectResultSizeDataAccessException e) {
+			
+		}
+		}
 	}
+
 	public List<Project> findProjectByEmpId(String empId) throws SQLException{
 		return null;
 	}
