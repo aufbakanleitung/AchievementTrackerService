@@ -1,7 +1,6 @@
 package com.ibm.achievement.dao.util;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import com.ibm.achievement.dao.manager.AchievementManager;
 import com.ibm.achievement.dao.manager.EmployeeManager;
