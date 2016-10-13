@@ -2,6 +2,7 @@ package com.ibm.achievement.dao.impl;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -19,28 +20,32 @@ public class EmployeeDAOImpl implements EmployeeDAO{
 	
 	@Autowired JdbcTemplate template;
 	
-	public java.util.List<Employee> findByManagerFlag()
-            throws java.sql.SQLException{return null;}
+	public List<Employee> findByManagerFlag() throws SQLException{
+		return template.query("select * from TA_EMPLOYEE_DETAIL where MANAGER_FLAG = Y", new EmployeeMapper());
+		}
 	
-	public Employee findEmployeeByMailId(java.lang.String mailId)
-			throws java.sql.SQLException{
+	public Employee findEmployeeByMailId(String mailId)
+			throws SQLException{
 		return template.queryForObject("select * from TA_EMPLOYEE_DETAIL where EMAIL_ADDRESS = ?",
 				new EmployeeMapper(),
 				mailId);
 	}
 	
-	public java.util.List<Employee> findAllEmployee()
-            throws java.sql.SQLException{
+	public List<Employee> findAllEmployee()
+            throws SQLException{
 		
 		return template.query("select * from TA_EMPLOYEE_DETAIL", new EmployeeMapper());
-		
-	
 	}
 	
-	public java.util.List<EmployeeUserProject> findEmployeeByActiveFlg(java.lang.String actFlg){return null;}
+	public List<EmployeeUserProject> findEmployeeByActiveFlg(String actFlg) throws SQLException{
+			return template.query("select * from TA_USERS tu JOIN TA_EMPLOYEE_DETAIL te on tu.EMAIL_ADDRESS = te.EMAIL_ADDRESS where tu.ACTIVE_FLAG = ?", new EmployeeUserProjectMapper(), actFlg);
+		}
 	
-	public java.util.List<Project> findProjectByEmpId(java.lang.String empId)
-            throws java.sql.SQLException{return null;}
+	public List<Project> findProjectByEmpId(String empId)
+            throws SQLException{
+		return template.query("select * from TA_PROJECTS where PROJECT_ID in (select PROJECT_ID from TA_EMPLOYEE_PROJECT where EMPLOYEE_ID = ?)",
+				new ProjectMapper(), empId);	
+	}
 	
 	public int updateEmployeeData(java.lang.String empId,
             java.lang.String mailId,

@@ -158,9 +158,10 @@ public class UserManagementBO {
 		logger.info("testing");
 		List<EmployeeVO> employeeVOs = new ArrayList<EmployeeVO>();
 		EmployeeManager employeeManager = achievementListeners.getEmployeeManager();
-		List<EmployeeUserProject> employeeUser = employeeManager.findEmployeeByActiveFlg(activeFlag);
-		logger.info("testing");
+		
 		try {
+			List<EmployeeUserProject> employeeUser = employeeManager.findEmployeeByActiveFlg(activeFlag);
+			logger.info("testing");
 			for (EmployeeUserProject empUser : employeeUser) {
 				EmployeeVO employeeVO = new EmployeeVO();
 				employeeVO.setActiveFlag(empUser.getActiveFlag());

@@ -21,9 +21,6 @@ import com.ibm.achievement.dao.model.User;
 @Component
 public class EmployeeManager {
 	
-	@Autowired 
-	JdbcTemplate template;
-	
 	@Autowired EmployeeDAO employeeDAO;
 	String mailId;
 	String actFlg;
@@ -38,29 +35,7 @@ public class EmployeeManager {
 	}
 	public Employee findEmployeeByMailId(String mailId)
 			throws java.sql.SQLException{
-		try {
-			
-		
-			return template.queryForObject("select * from TA_EMPLOYEE_DETAIL where EMAIL_ADDRESS = ?",
-					new RowMapper<Employee>() {
-	
-				@Override
-				public Employee mapRow(ResultSet rs, int num) throws SQLException {
-					Employee employee = new Employee();
-					employee.setEmailID(rs.getString("EMAIL_ADDRESS"));
-					employee.setEmployeeId(rs.getString("EMPLOYEE_ID"));
-					employee.setFirstName(rs.getString("FIRST_NAME"));
-					employee.setLastName(rs.getString("LAST_NAME"));
-					employee.setManagerFlag(rs.getString("MANAGER_FLAG"));
-					employee.setManagerId(rs.getString("MANAGER_ID"));
-					return employee;
-				}
-	
-			},
-					mailId);
-		}catch (IncorrectResultSizeDataAccessException e) {
-			return null;
-		}
+		return employeeDAO.findEmployeeByMailId(mailId);
 	}
 				
 	public List<Employee> findAllEmployee() throws SQLException{
@@ -68,14 +43,7 @@ public class EmployeeManager {
 	}
 	public List<EmployeeUserProject> findEmployeeByActiveFlg(String actFlg)
 		throws java.sql.SQLException{
-			try {
-
-				return template.query("select * from TA_EMPLOYEE_PROJECT where EMPLOYEE_ID in (select EMPLOYEE_ID from TA_EMPLOYEE_DETAIL where EMAIL_ADDRESS in (select EMAIL_ADDRESS from TA_USERS where ACTIVE_FLAG = ?))", new EmployeeMapper(), actFlg);
-			
-		}catch (IncorrectResultSizeDataAccessException e) {
-			
-		}
-		}
+		return employeeDAO.findEmployeeByActiveFlg(actFlg);
 	}
 
 	public List<Project> findProjectByEmpId(String empId) throws SQLException{
