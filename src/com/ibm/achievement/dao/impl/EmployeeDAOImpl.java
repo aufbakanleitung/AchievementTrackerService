@@ -33,7 +33,6 @@ public class EmployeeDAOImpl implements EmployeeDAO{
 	
 	public List<Employee> findAllEmployee()
             throws SQLException{
-		
 		return template.query("select * from TA_EMPLOYEE_DETAIL", new EmployeeMapper());
 	}
 	
@@ -77,13 +76,21 @@ public class EmployeeDAOImpl implements EmployeeDAO{
             throws SQLException{return template.update("DELETE FROM EMPLOYEE_ID where EMPLOYEE_ID = ?", empId);}
 	
 	public Employee findEmployeeById(String empId)
-            throws SQLException{return null;}
-	
-	public java.util.List<Employee> findEmployees(java.lang.String emailID,
-            java.lang.String firstName,
-            java.lang.String lastName,
-            java.lang.String managerFlag)
-     throws java.sql.SQLException{return null;}
+            throws SQLException{
+		return template.queryForObject("select * from TA_EMPLOYEE_DETAIL where EMPLOYEE_ID = ?",
+				new EmployeeMapper(),
+				empId);
+	}
+//	TODO: Check if this SQL statement makes any sense.
+	public List<Employee> findEmployees(String emailID,
+            String firstName,
+            String lastName,
+            String managerFlag)
+     throws SQLException{
+		return template.query("select * from TA_EMPLOYEE_DETAIL where EMAIL_ADDRESS = ? OR FIRST_NAME = ? OR LAST_NAME = ? or MANAGER_FLAG =?",
+				new EmployeeMapper(),
+				emailID, firstName, lastName, managerFlag);
+		}
 	
 	
 }
