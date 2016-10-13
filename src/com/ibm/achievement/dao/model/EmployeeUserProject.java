@@ -14,6 +14,7 @@ public class EmployeeUserProject extends java.lang.Object{
 	private List<Project> Projects;
 	private String UserRoll;
 	
+	
 	public EmployeeUserProject(){
 		
 	}
