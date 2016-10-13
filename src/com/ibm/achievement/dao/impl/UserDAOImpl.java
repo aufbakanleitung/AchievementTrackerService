@@ -45,20 +45,39 @@ public class UserDAOImpl implements UserDAO{
 			
 
 	public java.util.List<User> findUserByActiveFlg(java.lang.String actFlg)
-			throws java.sql.SQLException{return null;}
+			throws java.sql.SQLException {
+		return template.query("select * from TA_USERS where ACTIVE_FLAG = ?",
+				
+				new UserMapper(),
+				
+				actFlg);			
+	}
 
 	public java.util.List<User> findAllUser()
-			throws java.sql.SQLException{return null;}
+			throws java.sql.SQLException{
+		return template.query("select * from TA_USERS where  = ?", new UserMapper());			
+}
 
 	public int updateActiveFlag(java.lang.String mailId,
 			java.lang.String activeFlg)
-					throws java.sql.SQLException{return 0;}
+					throws java.sql.SQLException{
+		return template.update("UPDATE TA_USERS SET ACTIVE_FLAG = ? where EMAIL_ADDRESS = ?",
+				
+				new UserMapper(),
+				
+				mailId, activeFlg);}
 
 	public int insertUserData(java.lang.String mailId,
             java.lang.String passwd,
             java.lang.String activeFlg,
             java.lang.String role)
-     throws java.sql.SQLException{return 0;}
+     throws java.sql.SQLException{
+		
+		return template.update("INSERT INTO TA_USERS (EMAIL_ADDRESS, PASSWORD, ACTIVE_FLAG, USER_ROLE) VALUES (? , ? , ? , ?)",
+				
+    					new UserMapper(),
+    					
+    					mailId, passwd, activeFlg, role);}
 
 	@Override
 	public int deleteUserData(String mailId) throws SQLException {

@@ -42,6 +42,7 @@ public class EmployeeManager {
 		return null;
 	}
 	public List<EmployeeUserProject> findEmployeeByActiveFlg(String actFlg)
+
 		throws java.sql.SQLException{
 		return employeeDAO.findEmployeeByActiveFlg(actFlg);
 	}

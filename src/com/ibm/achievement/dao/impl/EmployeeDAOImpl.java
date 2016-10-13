@@ -53,7 +53,12 @@ public class EmployeeDAOImpl implements EmployeeDAO{
             java.lang.String lastNm,
             java.lang.String managerId,
             java.lang.String managerFlg)
-     throws java.sql.SQLException{return 0;}
+     throws java.sql.SQLException{
+		return template.update("UPDATE TA_EMPLOYEE_DETAIL "
+				+ "(`EMPLOYEE_ID`, `EMAIL_ADDRESS`, `FIRST_NAME`, `LAST_NAME`, `MANAGER_ID`, `MANAGER_FLAG`) "
+				+ "VALUES (?,?,?,?,?,?)",
+				empId, mailId, firstNm,lastNm, managerId, managerFlg);
+		}
 	
 	public int insertEmployeeData(java.lang.String empId,
             java.lang.String mailId,
@@ -61,13 +66,18 @@ public class EmployeeDAOImpl implements EmployeeDAO{
             java.lang.String lastNm,
             java.lang.String managerId,
             java.lang.String managerFlg)
-     throws java.sql.SQLException{return 0;}
+     throws java.sql.SQLException{
+		return template.update("INSERT INTO TA_EMPLOYEE_DETAIL "
+				+ "(`EMPLOYEE_ID`, `EMAIL_ADDRESS`, `FIRST_NAME`, `LAST_NAME`, `MANAGER_ID`, `MANAGER_FLAG`) "
+				+ "VALUES (?,?,?,?,?,?)",
+				empId, mailId, firstNm,lastNm, managerId, managerFlg);
+		}
 	
-	public int deleteEmployeeData(java.lang.String empId)
-            throws java.sql.SQLException{return 0;}
+	public int deleteEmployeeData(String empId)
+            throws SQLException{return template.update("DELETE FROM EMPLOYEE_ID where EMPLOYEE_ID = ?", empId);}
 	
-	public Employee findEmployeeById(java.lang.String empId)
-            throws java.sql.SQLException{return null;}
+	public Employee findEmployeeById(String empId)
+            throws SQLException{return null;}
 	
 	public java.util.List<Employee> findEmployees(java.lang.String emailID,
             java.lang.String firstName,
