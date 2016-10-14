@@ -42,9 +42,6 @@ public interface EmployeeDAO {
 	List<EmployeeUserProject> findEmployeeByActiveFlg(java.lang.String actFlg)
             throws java.sql.SQLException;
 	
-	List<Project> findProjectByEmpId(java.lang.String empId)
-            throws java.sql.SQLException;
-	
 	List<Employee> findEmployees(java.lang.String emailID,
             java.lang.String firstName,
             java.lang.String lastName,

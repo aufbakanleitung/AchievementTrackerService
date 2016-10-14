@@ -19,10 +19,10 @@ public class AchievementMapper implements RowMapper<Achievement> {
 		achievement.setAchievementTypeId(rs.getString("TYPE_ID"));
 		achievement.setApproverComment(rs.getString("APPROVER_COMMENT_TEXT"));
 		achievement.setApproverPointVal(rs.getInt("APPROVER_POINT_VAL"));
-		achievement.setCategoryId(rs.getString("CATERGORY_ID"));
+		achievement.setCategoryId(rs.getString("CATEGORY_ID"));
 		achievement.setEndDate(rs.getDate("END_DATE"));
-		achievement.setGetApproverId(rs.getString("APPROVER_ID"));
-		achievement.setGetEmployeeId(rs.getString("EMPLOYEE_ID"));
+		achievement.setApproverId(rs.getString("APPROVER_ID"));
+		achievement.setEmployeeId(rs.getString("EMPLOYEE_ID"));
 		achievement.setProjectId(rs.getString("PROJECT_ID"));
 		achievement.setStartDate(rs.getDate("START_DATE"));
 		achievement.setStatusCode(rs.getString("STATUS_CODE"));

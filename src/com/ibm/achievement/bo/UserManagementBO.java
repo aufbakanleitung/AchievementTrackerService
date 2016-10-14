@@ -171,7 +171,6 @@ public class UserManagementBO {
 				employeeVO.setLastName(empUser.getLastName());
 				employeeVO.setManagerFlag(empUser.getManagerFlag());
 				employeeVO.setManagerId(empUser.getManagerId());
-				employeeVO.setManagerId(empUser.getManagerId());
 				employeeVO.setUserRoll(empUser.getUserRoll());
 
 				ProjectManager projectManager = achievementListeners.getProjectManager();

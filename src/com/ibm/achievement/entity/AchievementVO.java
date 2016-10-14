@@ -115,4 +115,15 @@ public class AchievementVO {
 		this.statusCode = statusCode;
 	}
 
+	@Override
+	public String toString() {
+		return "AchievementVO [achievementId=" + achievementId + ", employeeId=" + employeeId + ", achievementTypeId="
+				+ achievementTypeId + ", achievementText=" + achievementText + ", approverComment=" + approverComment
+				+ ", approverId=" + approverId + ", approverPointVal=" + approverPointVal + ", endDate=" + endDate
+				+ ", startDate=" + startDate + ", projectId=" + projectId + ", statusCode=" + statusCode
+				+ ", achievementDoc=" + achievementDoc + "]";
+	}
+	
+	
+
 }

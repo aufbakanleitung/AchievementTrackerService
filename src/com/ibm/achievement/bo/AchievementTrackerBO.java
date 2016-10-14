@@ -204,19 +204,19 @@ public class AchievementTrackerBO {
 		try {
 			AchievementManager achievementManager = achievementListeners.getAchievementManager();
 			List<Achievement> achievements = achievementManager.findAchievementByEmpId(employeeId);
-
+			logger.info("Got achievements:" + achievements);
 			for (Achievement achievement : achievements) {
 				AchievementVO achievementVO = new AchievementVO();
 				BeanUtils.copyProperties(achievementVO, achievement);
 
 				List<AchievementDocVO> achievementDocVOs = new ArrayList<AchievementDocVO>();
 				List<AchievementDoc> achievementDocs = achievement.getAchievementDoc();
-
-				for (AchievementDoc doc : achievementDocs) {
-					AchievementDocVO achievementDocVO = new AchievementDocVO();
-					BeanUtils.copyProperties(achievementDocVO, doc);
-					achievementDocVOs.add(achievementDocVO);
-				}
+					for (AchievementDoc doc : achievementDocs) {
+						AchievementDocVO achievementDocVO = new AchievementDocVO();
+						BeanUtils.copyProperties(achievementDocVO, doc);
+						achievementDocVOs.add(achievementDocVO);
+					}
+				
 				achievementVO.setAchievementDoc(achievementDocVOs);
 				achievementVOs.add(achievementVO);
 			}
@@ -228,7 +228,7 @@ public class AchievementTrackerBO {
 			throw new AchievementTrackerException(ex.getMessage());
 		}
 		
-		logger.info("END findAchievementByEmpID");
+		logger.info("END findAchievementByEmpID" + achievementVOs);
 		return achievementVOs;
 	}
 

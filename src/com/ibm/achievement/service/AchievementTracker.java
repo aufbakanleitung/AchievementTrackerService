@@ -146,11 +146,13 @@ public class AchievementTracker extends SpringBeanAutowiringSupport{
 			achievementVOs = achievementTrackerBO
 					.findAchievementByEmpID(employeeId);
 		} catch (AchievementTrackerException e) {
+			
 			throw e;
 		} catch (Exception e) {
+			
 			throw new AchievementTrackerException(e.getMessage(), e);
-		}
-		logger.info("END findAchievementByEmpID");
+		} catch (Throwable e) {
+		logger.info("END findAchievementByEmpID");}
 		return achievementVOs;
 	}
 
