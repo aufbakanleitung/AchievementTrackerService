@@ -1,24 +1,27 @@
 package com.ibm.achievement.dao.impl;
 
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
+import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 
+import com.ibm.achievement.bo.UserManagementBO;
 import com.ibm.achievement.dao.EmployeeDAO;
 import com.ibm.achievement.dao.model.Employee;
 import com.ibm.achievement.dao.model.EmployeeUserProject;
 import com.ibm.achievement.dao.model.Project;
-import com.ibm.achievement.dao.model.User;
 
 @Component
 public class EmployeeDAOImpl implements EmployeeDAO{
 	
 	@Autowired JdbcTemplate template;
+	
+	private Logger logger = Logger.getLogger(EmployeeDAOImpl.class);
 	
 	public List<Employee> findByManagerFlag() throws SQLException{
 		return template.query("select * from TA_EMPLOYEE_DETAIL where MANAGER_FLAG = Y", new EmployeeMapper());
@@ -26,14 +29,19 @@ public class EmployeeDAOImpl implements EmployeeDAO{
 	
 	public Employee findEmployeeByMailId(String mailId)
 			throws SQLException{
+		try{
 		return template.queryForObject("select * from TA_EMPLOYEE_DETAIL where EMAIL_ADDRESS = ?",
 				new EmployeeMapper(),
 				mailId);
+	}catch(IncorrectResultSizeDataAccessException e) {
+		logger.error("the  findEmployeeByMailId IncorrectResultSizeDataAccessException");
+		return null;
+	}
+		
 	}
 	
 	public List<Employee> findAllEmployee()
             throws SQLException{
-		
 		return template.query("select * from TA_EMPLOYEE_DETAIL", new EmployeeMapper());
 	}
 	
@@ -77,13 +85,22 @@ public class EmployeeDAOImpl implements EmployeeDAO{
             throws SQLException{return template.update("DELETE FROM EMPLOYEE_ID where EMPLOYEE_ID = ?", empId);}
 	
 	public Employee findEmployeeById(String empId)
-            throws SQLException{return null;}
-	
-	public java.util.List<Employee> findEmployees(java.lang.String emailID,
-            java.lang.String firstName,
-            java.lang.String lastName,
-            java.lang.String managerFlag)
-     throws java.sql.SQLException{return null;}
+            throws SQLException{
+		return template.queryForObject("select * from TA_EMPLOYEE_DETAIL where EMPLOYEE_ID = ?",
+				new EmployeeMapper(),
+				empId);
+	}
+//	TODO: Check if this SQL statement makes any sense. -Herman
+	public List<Employee> findEmployees(String emailID,
+            String firstName,
+            String lastName,
+            String managerFlag)
+     throws SQLException{
+		logger.info("emailId:"+emailID + "|first:"+ firstName + "|last:"+ lastName + "|manager:"+managerFlag);
+		return template.query("select * from TA_EMPLOYEE_DETAIL where (EMAIL_ADDRESS = ? OR FIRST_NAME = ? OR LAST_NAME = ?) AND MANAGER_FLAG =?",
+				new EmployeeMapper(),
+				emailID, firstName, lastName, managerFlag);
+		}
 	
 	
 }
