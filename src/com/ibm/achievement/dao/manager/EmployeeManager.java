@@ -47,9 +47,6 @@ public class EmployeeManager {
 		return employeeDAO.findEmployeeByActiveFlg(actFlg);
 	}
 
-	public List<Project> findProjectByEmpId(String empId) throws SQLException{
-		return employeeDAO.findProjectByEmpId(empId);
-	}
 	public Employee findEmployeeById(String empId) throws SQLException{
 		return employeeDAO.findEmployeeById(empId);
 	}

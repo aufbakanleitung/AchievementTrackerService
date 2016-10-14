@@ -1,129 +1,141 @@
 package com.ibm.achievement.dao.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 public class Achievement extends java.lang.Object{
     
-	private List <AchievementDoc> AchievementDoc;
-	private int AchievementId;
-	private String	AchievementText;
-	private String	AchievementTypeId;
-	private String	ApproverComment;
-	private String	getApproverId;
-	private int ApproverPointVal;
-	private String CategoryId;
-	private String	getEmployeeId;
-	private Date EndDate;
-	private String ProjectId;
-	private Date StartDate;
-	private String StatusCode;
+	private List <AchievementDoc> achievementDoc = new ArrayList<AchievementDoc>();
+	private int achievementId;
+	private String	achievementText;
+	private String	achievementTypeId;
+	private String	approverComment;
+	private String	approverId;
+	private int approverPointVal;
+	private String categoryId;
+	private String	employeeId;
+	private Date endDate;
+	private String projectId;
+	private Date startDate;
+	private String statusCode;
 	
 	public Achievement(){
 	}
 
 	public List<AchievementDoc> getAchievementDoc() {
-		return AchievementDoc;
+		return achievementDoc;
 	}
 
 	public void setAchievementDoc(List<AchievementDoc> achievementDoc) {
-		AchievementDoc = achievementDoc;
+		this.achievementDoc = achievementDoc;
 	}
 
 	public int getAchievementId() {
-		return AchievementId;
+		return achievementId;
 	}
 
 	public void setAchievementId(int achievementId) {
-		AchievementId = achievementId;
+		this.achievementId = achievementId;
 	}
 
 	public String getAchievementText() {
-		return AchievementText;
+		return achievementText;
 	}
 
 	public void setAchievementText(String achievementText) {
-		AchievementText = achievementText;
+		this.achievementText = achievementText;
 	}
 
 	public String getAchievementTypeId() {
-		return AchievementTypeId;
+		return achievementTypeId;
 	}
 
 	public void setAchievementTypeId(String achievementTypeId) {
-		AchievementTypeId = achievementTypeId;
+		this.achievementTypeId = achievementTypeId;
 	}
 
 	public String getApproverComment() {
-		return ApproverComment;
+		return approverComment;
 	}
 
 	public void setApproverComment(String approverComment) {
-		ApproverComment = approverComment;
+		this.approverComment = approverComment;
 	}
 
 	public String getGetApproverId() {
-		return getApproverId;
+		return approverId;
 	}
 
 	public void setGetApproverId(String getApproverId) {
-		this.getApproverId = getApproverId;
+		this.approverId = getApproverId;
 	}
 
 	public int getApproverPointVal() {
-		return ApproverPointVal;
+		return approverPointVal;
 	}
 
 	public void setApproverPointVal(int approverPointVal) {
-		ApproverPointVal = approverPointVal;
+		this.approverPointVal = approverPointVal;
 	}
 
 	public String getCategoryId() {
-		return CategoryId;
+		return categoryId;
 	}
 
 	public void setCategoryId(String categoryId) {
-		CategoryId = categoryId;
+		this.categoryId = categoryId;
 	}
 
 	public String getGetEmployeeId() {
-		return getEmployeeId;
+		return employeeId;
 	}
 
 	public void setGetEmployeeId(String getEmployeeId) {
-		this.getEmployeeId = getEmployeeId;
+		this.employeeId = getEmployeeId;
 	}
 
 	public Date getEndDate() {
-		return EndDate;
+		return endDate;
 	}
 
 	public void setEndDate(Date endDate) {
-		EndDate = endDate;
+		this.endDate = endDate;
 	}
 
 	public String getProjectId() {
-		return ProjectId;
+		return projectId;
 	}
 
 	public void setProjectId(String projectId) {
-		ProjectId = projectId;
+		this.projectId = projectId;
 	}
 
 	public Date getStartDate() {
-		return StartDate;
+		return startDate;
 	}
 
 	public void setStartDate(Date startDate) {
-		StartDate = startDate;
+		this.startDate = startDate;
 	}
 
 	public String getStatusCode() {
-		return StatusCode;
+		return statusCode;
 	}
 
 	public void setStatusCode(String statusCode) {
-		StatusCode = statusCode;
+		this.statusCode = statusCode;
 	}
 
+	@Override
+	public String toString() {
+		return "Achievement [AchievementDoc=" + achievementDoc + ", AchievementId=" + achievementId
+				+ ", AchievementText=" + achievementText + ", AchievementTypeId=" + achievementTypeId
+				+ ", ApproverComment=" + approverComment + ", getApproverId=" + approverId + ", ApproverPointVal="
+				+ approverPointVal + ", CategoryId=" + categoryId + ", getEmployeeId=" + employeeId + ", EndDate="
+				+ endDate + ", ProjectId=" + projectId + ", StartDate=" + startDate + ", StatusCode=" + statusCode
+				+ "]";
+	}
+
+	
 }

@@ -48,12 +48,7 @@ public class EmployeeDAOImpl implements EmployeeDAO{
 	public List<EmployeeUserProject> findEmployeeByActiveFlg(String actFlg) throws SQLException{
 			return template.query("select * from TA_USERS tu JOIN TA_EMPLOYEE_DETAIL te on tu.EMAIL_ADDRESS = te.EMAIL_ADDRESS where tu.ACTIVE_FLAG = ?", new EmployeeUserProjectMapper(), actFlg);
 		}
-	
-	public List<Project> findProjectByEmpId(String empId)
-            throws SQLException{
-		return template.query("select * from TA_PROJECTS where PROJECT_ID in (select PROJECT_ID from TA_EMPLOYEE_PROJECT where EMPLOYEE_ID = ?)",
-				new ProjectMapper(), empId);	
-	}
+
 	
 	public int updateEmployeeData(java.lang.String empId,
             java.lang.String mailId,
