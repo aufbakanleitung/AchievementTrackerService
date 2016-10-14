@@ -39,7 +39,7 @@ public class EmployeeManager {
 	}
 				
 	public List<Employee> findAllEmployee() throws SQLException{
-		return null;
+		return employeeDAO.findAllEmployee();
 	}
 	public List<EmployeeUserProject> findEmployeeByActiveFlg(String actFlg)
 
@@ -48,19 +48,19 @@ public class EmployeeManager {
 	}
 
 	public List<Project> findProjectByEmpId(String empId) throws SQLException{
-		return null;
+		return employeeDAO.findProjectByEmpId(empId);
 	}
 	public Employee findEmployeeById(String empId) throws SQLException{
-		return null;
+		return employeeDAO.findEmployeeById(empId);
 	}
 	public int updateEmployeeData(String empId, String mailId, String firstNm, String lastNm, String managerId, String managerFlg) throws SQLException{
-		return 0;
+		return employeeDAO.updateEmployeeData(empId, mailId, firstNm, lastNm, managerId, managerFlg);
 	}
 	public int insertEmployeeData(String empId, String mailId, String firstNm, String lastNm, String managerId, String managerFlg) throws SQLException{
-		return 0;
+		return employeeDAO.insertEmployeeData(empId, mailId, firstNm, lastNm, managerId, managerFlg);
 	}
-	public int deleteEmployeeData(String empId){
-		return 0;
+	public int deleteEmployeeData(String empId) throws SQLException{
+		return employeeDAO.deleteEmployeeData(empId);
 	}
 	public List<Employee> findEmployees(String emailID,
             String firstName,
