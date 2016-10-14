@@ -63,7 +63,7 @@ public class UserDAOImpl implements UserDAO{
 					throws java.sql.SQLException{
 		return template.update("UPDATE TA_USERS SET ACTIVE_FLAG = ? where EMAIL_ADDRESS = ?",
 				
-				mailId, activeFlg);}
+				activeFlg, mailId);}
 
 	public int insertUserData(java.lang.String mailId,
             java.lang.String passwd,
