@@ -63,11 +63,11 @@ public class Achievement extends java.lang.Object{
 		this.approverComment = approverComment;
 	}
 
-	public String getGetApproverId() {
+	public String getApproverId() {
 		return approverId;
 	}
 
-	public void setGetApproverId(String getApproverId) {
+	public void setApproverId(String getApproverId) {
 		this.approverId = getApproverId;
 	}
 
@@ -87,11 +87,11 @@ public class Achievement extends java.lang.Object{
 		this.categoryId = categoryId;
 	}
 
-	public String getGetEmployeeId() {
+	public String getEmployeeId() {
 		return employeeId;
 	}
 
-	public void setGetEmployeeId(String getEmployeeId) {
+	public void setEmployeeId(String getEmployeeId) {
 		this.employeeId = getEmployeeId;
 	}
 
