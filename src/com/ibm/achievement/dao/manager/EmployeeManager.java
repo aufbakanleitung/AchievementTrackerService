@@ -67,7 +67,7 @@ public class EmployeeManager {
             String lastName,
             String managerFlag)
      throws SQLException{
-		return null;
+		return employeeDAO.findEmployees(emailID, firstName, lastName, managerFlag);
 	}
 	
 }
