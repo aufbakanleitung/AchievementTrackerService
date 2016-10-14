@@ -63,8 +63,6 @@ public class UserDAOImpl implements UserDAO{
 					throws java.sql.SQLException{
 		return template.update("UPDATE TA_USERS SET ACTIVE_FLAG = ? where EMAIL_ADDRESS = ?",
 				
-				new UserMapper(),
-				
 				mailId, activeFlg);}
 
 	public int insertUserData(java.lang.String mailId,
@@ -74,8 +72,6 @@ public class UserDAOImpl implements UserDAO{
      throws java.sql.SQLException{
 		
 		return template.update("INSERT INTO TA_USERS (EMAIL_ADDRESS, PASSWORD, ACTIVE_FLAG, USER_ROLE) VALUES (? , ? , ? , ?)",
-				
-    					new UserMapper(),
     					
     					mailId, passwd, activeFlg, role);}
 
@@ -83,8 +79,6 @@ public class UserDAOImpl implements UserDAO{
 	public int deleteUserData(String mailId) throws SQLException {
 		// TODO Auto-generated method stub
 		return template.update("DELETE FROM TA_USERS (EMAIL_ADDRESS, PASSWORD, ACTIVE_FLAG, USER_ROLE) VALUES (? , ? , ? , ?)",
-				
-				new UserMapper(),
 				
 				mailId);}
 }

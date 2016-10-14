@@ -86,9 +86,13 @@ public class EmployeeDAOImpl implements EmployeeDAO{
 	
 	public Employee findEmployeeById(String empId)
             throws SQLException{
+		try {
 		return template.queryForObject("select * from TA_EMPLOYEE_DETAIL where EMPLOYEE_ID = ?",
 				new EmployeeMapper(),
 				empId);
+		} catch (IncorrectResultSizeDataAccessException e) {
+			return null;
+		}
 	}
 //	TODO: Check if this SQL statement makes any sense. -Herman
 	public List<Employee> findEmployees(String emailID,
