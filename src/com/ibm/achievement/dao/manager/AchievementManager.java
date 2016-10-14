@@ -35,7 +35,7 @@ public class AchievementManager {
 		return achievementDAO.findAllAchievementCatg();
 	}
 	public List<Achievement> findAchievementByEmpId(String empId) throws SQLException{
-		return achievementDAO.findAchievementByApproverId(empId);
+		return achievementDAO.findAchievementByEmpId(empId);
 	}
 	public int saveAchievement(Achievement achievement) throws SQLException{
 		return achievementDAO.saveAchievement(achievement);
