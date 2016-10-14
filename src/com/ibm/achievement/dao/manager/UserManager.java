@@ -22,7 +22,7 @@ public class UserManager {
 
 	@Transactional
 	public int deleteUserData(String mailId) throws java.sql.SQLException {
-		return 0;
+		return userDAO.deleteUserData(mailId);
 	}
 
 	@Transactional
