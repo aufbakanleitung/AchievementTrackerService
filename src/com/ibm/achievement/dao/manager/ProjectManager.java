@@ -32,30 +32,17 @@ public class ProjectManager {
 	
 	public List<Project> findProjectByEmpId (String empId)
 			throws java.sql.SQLException{
-		return template.query("select * from TA_PROJECTS where PROJECT_ID in (select PROJECT_ID from TA_EMPLOYEE_PROJECT where EMPLOYEE_ID = ?)",
-				new RowMapper<Project>() {
-			@Override
-			public Project mapRow(ResultSet rs, int num) throws SQLException {
-				Project project = new Project();
-				project.setManagerID(rs.getString("MANAGER_ID"));
-				project.setProjectID(rs.getString("PROJECT_ID"));
-				project.setProjectName(rs.getString("PROJECT_NAME"));
-
-				return project;
-			}
-
-		},
-				empId);
+		return projectDAO.findProjectByEmpId(empId);
 	}
 	
 	public int insertEmpProject (String projectId, String employeeId) throws java.sql.SQLException {
 		
-		return 0;
+		return projectDAO.insertEmpProject(projectId, employeeId);
 	}
 	
 	public Project findProjectById (String projectId) throws java.sql.SQLException {
 		
-		return null;
+		return projectDAO.findProjectById(projectId);
 	}
 	
 }

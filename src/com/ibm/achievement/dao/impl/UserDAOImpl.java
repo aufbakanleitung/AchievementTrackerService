@@ -82,6 +82,9 @@ public class UserDAOImpl implements UserDAO{
 	@Override
 	public int deleteUserData(String mailId) throws SQLException {
 		// TODO Auto-generated method stub
-		return 0;
-	}
+		return template.update("DELETE FROM TA_USERS (EMAIL_ADDRESS, PASSWORD, ACTIVE_FLAG, USER_ROLE) VALUES (? , ? , ? , ?)",
+				
+				new UserMapper(),
+				
+				mailId);}
 }
