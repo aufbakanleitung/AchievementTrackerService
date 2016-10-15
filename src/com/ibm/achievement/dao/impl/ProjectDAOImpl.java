@@ -26,7 +26,12 @@ public class ProjectDAOImpl implements ProjectDAO{
 
 	public int insertEmpProject(java.lang.String projectId,
 			java.lang.String employeeId)
-					throws java.sql.SQLException{return 0;}
+					throws java.sql.SQLException{
+		
+		return template.update("insert INTO TA_EMPLOYEE_PROJECT (PROJECT_ID, EMPLOYEE_ID, START_DATE) VALUES (?,?,curdate())",
+				// get current date form data base
+				
+				projectId, employeeId);}
 
 	public Project findProjectById(java.lang.String projectId)
 			throws java.sql.SQLException{

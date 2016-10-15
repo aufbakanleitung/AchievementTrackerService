@@ -159,13 +159,11 @@ public class UserManagementBO {
 	public List<EmployeeVO> findUserByActiveFlag(String activeFlag) throws AchievementTrackerException {
 		
 		logger.info("START findUserByActiveFlag");
-		logger.info("testing");
 		List<EmployeeVO> employeeVOs = new ArrayList<EmployeeVO>();
 		EmployeeManager employeeManager = achievementListeners.getEmployeeManager();
-		
 		try {
 			List<EmployeeUserProject> employeeUser = employeeManager.findEmployeeByActiveFlg(activeFlag);
-			logger.info("testing");
+
 			for (EmployeeUserProject empUser : employeeUser) {
 				EmployeeVO employeeVO = new EmployeeVO();
 				employeeVO.setActiveFlag(empUser.getActiveFlag());
@@ -176,17 +174,15 @@ public class UserManagementBO {
 				employeeVO.setManagerFlag(empUser.getManagerFlag());
 				employeeVO.setManagerId(empUser.getManagerId());
 				employeeVO.setUserRoll(empUser.getUserRoll());
-
+				
 				ProjectManager projectManager = achievementListeners.getProjectManager();
 				List<Project> projList = projectManager.findProjectByEmpId(empUser.getEmployeeId());
 				List<ProjectVO> projects = new ArrayList<ProjectVO>();
-				
 				for (Project project : projList) {
 					ProjectVO projectVO = new ProjectVO();
 					BeanUtils.copyProperties(project, projectVO);
 					projects.add(projectVO);
 				}
-
 				employeeVO.setProjects(projects);
 				employeeVOs.add(employeeVO);
 			}

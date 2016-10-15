@@ -85,4 +85,12 @@ public class EmployeeVO {
 	public void setProjects(List<ProjectVO> projects) {
 		this.projects = projects;
 	}
+
+	@Override
+	public String toString() {
+		return "EmployeeVO [employeeId=" + employeeId + ", emailID=" + emailID + ", firstName=" + firstName
+				+ ", lastName=" + lastName + ", managerId=" + managerId + ", managerFlag=" + managerFlag + ", userRoll="
+				+ userRoll + ", activeFlag=" + activeFlag + ", projects=" + projects + "]";
+	}
+	
 }

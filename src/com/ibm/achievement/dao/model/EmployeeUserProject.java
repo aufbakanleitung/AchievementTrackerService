@@ -90,5 +90,12 @@ public class EmployeeUserProject extends java.lang.Object{
 	public void setUserRoll(String userRoll) {
 		UserRoll = userRoll;
 	}
+
+	@Override
+	public String toString() {
+		return "EmployeeUserProject [ActiveFlag=" + ActiveFlag + ", EmailID=" + EmailID + ", EmployeeId=" + EmployeeId
+				+ ", FirstName=" + FirstName + ", LastName=" + LastName + ", ManagerFlag=" + ManagerFlag
+				+ ", ManagerId=" + ManagerId + ", Projects=" + Projects + ", UserRoll=" + UserRoll + "]";
+	}
 	
 }
