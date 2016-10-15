@@ -22,6 +22,7 @@ import com.ibm.achievement.entity.EmployeeVO;
 import com.ibm.achievement.entity.ProjectVO;
 import com.ibm.achievement.exception.AchievementTrackerException;
 import com.ibm.achievement.util.AchievementConstants;
+import com.ibm.achievement.util.HashingAlgorithm;
 
 @Service
 public class UserManagementBO {
@@ -40,6 +41,9 @@ public class UserManagementBO {
 	 * @return String
 	 */
 	public EmployeeVO isValidUser(String emailId, String password) throws AchievementTrackerException {
+		HashingAlgorithm hash = new HashingAlgorithm();
+		password = hash.hash(password);
+		
 		
 		logger.info("START isValidUser BO");
 		EmployeeVO employeeVO = new EmployeeVO();
